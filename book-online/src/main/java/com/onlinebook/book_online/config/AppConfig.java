@@ -47,4 +47,5 @@ public class AppConfig {
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
     }
+    return
 }

@@ -24,7 +24,7 @@ public class BeamsConfig {
     }
 
     @Bean
-    private PasswordEncoder passwordEncodder() {
+    protected PasswordEncoder passwordEncodder() {
         return new BCryptPasswordEncoder();
     }
 }

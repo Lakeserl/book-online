@@ -15,13 +15,13 @@ public class Token {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
     private String token;
     private LocalDateTime createdAt;
     private LocalDateTime expiresAt;
     private LocalDateTime validatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

@@ -8,6 +8,7 @@ import com.onlinebook.book_online.repository.TokenRepository;
 import com.onlinebook.book_online.repository.UserRepository;
 import com.onlinebook.book_online.request.RegistrationReq;
 import jakarta.mail.MessagingException;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +22,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class AuthenticationService {
 
     private final RoleRepository roleRepository;
@@ -50,6 +52,7 @@ public class AuthenticationService {
                 .build();
 
         userRepository.save(user);
+        userRepository.flush();
         sendValidationEmail(user);
     }
 
